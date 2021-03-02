@@ -8,8 +8,9 @@
   },
   "scripts": {
     "example": "npm run build && node lib/bin.js scripts.example version name dev.js",
-    "build": "tsc",
+    "build": "npm run prune && tsc",
     "test": "jest --coverage",
+    "prune": "rimraf lib",
     "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [],
