@@ -1,4 +1,7 @@
 node_modules
+coverage
+src
+test
 *.ts
 dev.js
 dev.cjs
