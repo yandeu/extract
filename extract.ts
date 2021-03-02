@@ -19,7 +19,7 @@ const PACKAGE_NAME = 'extract'
 const KEYS = process.argv.slice(2)
 if (KEYS.length < 2) error()
 
-const FILENAME = KEYS.pop()?.replace(/^\.\/|\//, '') as string
+const FILENAME = KEYS.pop()?.replace(/^\.?\//, '') as string
 if (!FILENAME) error()
 
 const _tmp = fs.readFileSync(path.resolve('./package.json'), { encoding: 'utf-8' })
