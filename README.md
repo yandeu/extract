@@ -2,7 +2,13 @@
 
 Extract package.json properties.
 
-## Use
+## Installation
+
+```console
+npm install @yandeu/extract
+```
+
+## Usage
 
 ```json
 "name": "awesomepackage",
