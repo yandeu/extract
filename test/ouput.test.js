@@ -1,25 +1,32 @@
 const fs = require('fs')
-const path = require('path').resolve('./') + '/'
+const path = require('path').resolve('./')
 const { main } = require('../lib/main.js')
+
+const isWin = process.platform === 'win32'
+
+const makePath = p => {
+  const _path = isWin ? p.replace(/\//gm, '\\') : p
+  return path + _path
+}
 
 const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {})
 
 describe('extract#output esm', () => {
   test('simple', () => {
     const res = main(['', '', 'version', 'version.ts'])
-    expect(res.path).toBe(path + 'version.ts')
+    expect(res.path).toBe(makePath('/version.ts'))
     expect(res.output.trim()).toBe('export const VERSION = "1.0.0"')
   })
 
   test('sub directory', () => {
     let res = main(['', '', 'version', 'src/version.ts'])
-    expect(res.path).toBe(path + 'src/version.ts')
+    expect(res.path).toBe(makePath('/src/version.ts'))
 
     res = main(['', '', 'version', '/src/version.ts'])
-    expect(res.path).toBe(path + 'src/version.ts')
+    expect(res.path).toBe(makePath('/src/version.ts'))
 
     res = main(['', '', 'version', './src/version.ts'])
-    expect(res.path).toBe(path + 'src/version.ts')
+    expect(res.path).toBe(makePath('/src/version.ts'))
   })
 
   test('multiple keys', () => {
@@ -50,19 +57,19 @@ describe('extract#output esm', () => {
 describe('extract#output cjs', () => {
   test('simple', () => {
     const res = main(['', '', 'version', 'version.js'])
-    expect(res.path).toBe(path + 'version.js')
+    expect(res.path).toBe(makePath('/version.js'))
     expect(res.output.trim()).toBe('exports.VERSION = "1.0.0"')
   })
 
   test('sub directory', () => {
     let res = main(['', '', 'version', 'src/version.js'])
-    expect(res.path).toBe(path + 'src/version.js')
+    expect(res.path).toBe(makePath('/src/version.js'))
 
     res = main(['', '', 'version', '/src/version.js'])
-    expect(res.path).toBe(path + 'src/version.js')
+    expect(res.path).toBe(makePath('/src/version.js'))
 
     res = main(['', '', 'version', './src/version.js'])
-    expect(res.path).toBe(path + 'src/version.js')
+    expect(res.path).toBe(makePath('/src/version.js'))
   })
 
   test('multiple keys', () => {
