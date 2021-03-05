@@ -1,7 +1,7 @@
 {
   "name": "@yandeu/extract",
   "version": "0.0.2",
-  "description": "Extract package.json properties.",
+  "description": "📦 Extract package.json properties.",
   "main": "lib/extract.js",
   "bin": {
     "extract": "./lib/bin.js"
