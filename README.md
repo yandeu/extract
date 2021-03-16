@@ -10,6 +10,8 @@ npm install @yandeu/extract
 
 ## Usage
 
+### CLI (example 1)
+
 ```json
 "name": "awesomepackage",
 "version": "1.2.0",
@@ -30,7 +32,7 @@ npm install @yandeu/extract
 exports.VERSION = '1.2.0'
 ```
 
-## Another Example
+### CLI (example 2)
 
 ```json
 "scripts": {
@@ -45,6 +47,29 @@ exports.VERSION = '1.2.0'
 export const NAME = 'awesomepackage'
 export const KEYWORDS = ['awesome', 'fast']
 export const TEST = 'jest --coverage'
+```
+
+### Node.js
+
+```js
+// index.cjs
+const { extract } = require('extract')
+
+extract(['name', 'version'], 'properties.js', false)
+```
+
+```js
+// index.mjs
+import { extract } from 'extract/lib/extract.js'
+
+extract(['name', 'version'], 'properties.js', false)
+```
+
+```js
+// index.ts
+import { extract } from 'extract'
+
+extract(['name', 'version'], 'properties.js', false)
 ```
 
 ## License
