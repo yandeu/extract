@@ -15,7 +15,9 @@
     "prepareRelease": "npm i && npm run prepublishOnly",
     "prepublishOnly": "npm run build && npm test"
   },
-  "keywords": [],
+  "keywords": [
+    "extract"
+  ],
   "author": "Yannick Deubel (https://github.com/yandeu)",
   "license": "MIT",
   "repository": {

@@ -29,8 +29,8 @@ export const output = (KEYS: string[], FILENAME: string, json: PackageJSON, isES
 
     value = JSON.stringify(value, null, 2)
 
-    const esm = `export const ${key} = ${value}`
-    const cjs = `exports.${key} = ${value}`
+    const esm = `export const ${key} = ${value};`
+    const cjs = `exports.${key} = ${value};`
 
     return isESM ? esm : cjs
   }

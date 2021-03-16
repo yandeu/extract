@@ -29,7 +29,7 @@ npm install @yandeu/extract
 
 ```js
 // VERSION.js
-exports.VERSION = '1.2.0'
+exports.VERSION = "1.2.0";
 ```
 
 ### CLI (example 2)
@@ -44,9 +44,9 @@ exports.VERSION = '1.2.0'
 
 ```ts
 // src/const.ts
-export const NAME = 'awesomepackage'
-export const KEYWORDS = ['awesome', 'fast']
-export const TEST = 'jest --coverage'
+export const NAME = "awesomepackage";
+export const KEYWORDS = ["awesome", "fast"];
+export const TEST = "jest --coverage";
 ```
 
 ### Node.js
