@@ -7,13 +7,13 @@ import { error } from './error'
 import { output } from './output'
 
 export const extract = (args: string[], filename: string, testing = true) => {
-  if (args.length < 1) error()
-  if (!filename) error()
+  if (args.length < 1) return error()
+  if (!filename) return error()
 
   const KEYS = args
 
   const FILENAME = filename.replace(/^\.?\//, '') as string
-  if (!FILENAME) error()
+  if (!FILENAME) return error()
 
   const _tmp = fs.readFileSync(path.resolve(!testing ? './package.json' : './test/package.test.json'), {
     encoding: 'utf-8'
