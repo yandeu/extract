@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "📦 Extract package.json properties.",
   "main": "lib/extract.js",
+  "types": "lib/extract.d.ts",
   "bin": {
     "extract": "./lib/bin.js"
   },
