@@ -6,11 +6,13 @@ import { PackageJSON } from './types'
 import { error } from './error'
 import { output } from './output'
 
-export const extract = (args: string[], testing = true) => {
-  const KEYS = args
-  if (KEYS.length < 2) error()
+export const extract = (args: string[], filename: string, testing = true) => {
+  if (args.length < 1) error()
+  if (!filename) error()
 
-  const FILENAME = KEYS.pop()?.replace(/^\.?\//, '') as string
+  const KEYS = args
+
+  const FILENAME = filename.replace(/^\.?\//, '') as string
   if (!FILENAME) error()
 
   const _tmp = fs.readFileSync(path.resolve(!testing ? './package.json' : './test/package.test.json'), {
