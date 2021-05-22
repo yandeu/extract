@@ -34,6 +34,18 @@ exports.VERSION = "1.2.0";
 
 ### CLI (example 2)
 
+Format file after extraction
+
+```json
+"scripts": {
+  "version": "extract version src/version.ts && prettier --write src/version.ts",
+},
+```
+
+`npm run version` will extract the version and format it with prettier.
+
+### CLI (example 3)
+
 ```json
 "scripts": {
   "extract": "extract name keywords scripts.test src/const.ts",
